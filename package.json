@@ -1,0 +1,28 @@
+{
+  "name": "form-app",
+  "version": "1.0.0",
+  "description": "pure JS form-app",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Form-app"
+  },
+  "keywords": [
+    "JS",
+    "JavaScript"
+  ],
+  "author": "Oleksii Solomakha <Oleksiisolomakha@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.4.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
