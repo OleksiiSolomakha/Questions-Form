@@ -1,6 +1,6 @@
 import {Question} from './questions';
 import { isValid, createModalWindow } from './utils';
-import './styles.css'
+import './styles.css';
 import { getAuthForm, authWithEmailAndPassword } from './auth';
 
 const form = document.querySelector('#form');
@@ -13,7 +13,7 @@ form.addEventListener('submit', submitFormHandler);
 allBtn.addEventListener('click', openModalWindow);
 input.addEventListener('input', () => {
   askBtn.disabled = !isValid(input.value);
-})
+});
 
 function submitFormHandler(event){
   event.preventDefault();
@@ -22,7 +22,7 @@ function submitFormHandler(event){
     const question = {
       text: input.value.trim(),
       date: new Date().toJSON()
-    }
+    };
 
     askBtn.disabled = true;
     Question.create(question).then(()=> {
@@ -37,7 +37,7 @@ function openModalWindow() {
   createModalWindow('Authorization', getAuthForm());
   document
   .querySelector('#auth-form')
-  .addEventListener('submit', authFormHandler, {once: true})
+  .addEventListener('submit', authFormHandler, {once: true});
 }
 
 function authFormHandler(event) {
@@ -53,7 +53,7 @@ function authFormHandler(event) {
     return Question.fetch(token);
   })
   .then(renderModalErr)
-  .then(() => btn.disabled = false)
+  .then(() => btn.disabled = false);
   
 }
 
@@ -61,6 +61,6 @@ function renderModalErr(content) {
   if(typeof content === 'string'){
     createModalWindow('Error', content);
   } else {
-    createModalWindow('Questions list', Question.listToHtml(content))
+    createModalWindow('Questions list', Question.listToHtml(content));
   }  
 }

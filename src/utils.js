@@ -12,5 +12,5 @@ export function createModalWindow(title, content) {
   `;
   modal.innerHTML = html;
 
-  mui.overlay('on', modal)
+  mui.overlay('on', modal);
 }

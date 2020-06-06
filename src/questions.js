@@ -13,24 +13,24 @@ export class Question {
         return question;
       })
       .then(addToLocalStorage)
-      .then(Question.renderList)
+      .then(Question.renderList);
   }
   static fetch(token) {
     if(!token){
-      return Promise.resolve(`<p class="error">You are not authorized!</p>`)
+      return Promise.resolve(`<p class="error">You are not authorized!</p>`);
     }
     return fetch(`https://question-form-77573.firebaseio.com/questions.json?auth=${token}`)
       .then(response => response.json())
       .then(response => {
         if(response && response.error) {
-          return `<p class="error">${response.error}</p>`
+          return `<p class="error">${response.error}</p>`;
         }
 
         return response ? Object.keys(response).map(key => ({
           ...response[key],
           id: key
         })) : [];
-      })
+      });
   }
   static renderList() {
     const questions = getQuestionsFromLocalStorage();
@@ -45,7 +45,7 @@ export class Question {
   static listToHtml(questions){
     return questions.length
     ? `<ol>${questions.map(q => `<li>${q.text}</li>`).join('')}</ol>`
-    : `<p>No questions here yet(</p>`
+    : `<p>No questions here yet(</p>`;
   }
 }
 
